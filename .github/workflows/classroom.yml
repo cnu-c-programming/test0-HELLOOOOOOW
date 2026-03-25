@@ -232,7 +232,7 @@ jobs:
           z - alpha:[^0].* digit:0 upper:Z lower:z
           5 - alpha:0 digit:[^0].* upper:5 lower:5
           ! - alpha:0 digit:0 upper:! lower:!
-        comparison-method: contains
+        comparison-method: regex
         timeout: 10
         max-score: 1
     - name: test-2-5

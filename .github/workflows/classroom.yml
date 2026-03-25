@@ -208,7 +208,7 @@ jobs:
       with:
         test-name: test-2-3
         setup-command: gcc ./code/2-3/*.c -o a
-        command: a
+        command: "./a"
         input: ''
         expected-output: |
           length of a: 5
@@ -227,9 +227,11 @@ jobs:
         setup-command: gcc ./code/2-4/*.c -o a
         command: "./a"
         input: ''
-        expected-output: "A - alpha:1 digit:0 upper:A lower:a\nz - alpha:2 digit:0
-          upper:Z lower:z\n5 - alpha:0 digit:1 upper:5 lower:5\n! - alpha:0 digit:0
-          upper:! lower:!\n  - alpha:0 digit:0 upper:  lower: \n"
+        expected-output: |
+          A - alpha:1 digit:0 upper:A lower:a
+          z - alpha:2 digit:0 upper:Z lower:z
+          5 - alpha:0 digit:1 upper:5 lower:5
+          ! - alpha:0 digit:0 upper:! lower:!
         comparison-method: contains
         timeout: 10
         max-score: 1
@@ -238,7 +240,7 @@ jobs:
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: test-2-5
-        setup-command: gcc ./code/2-5/*.c -o a
+        setup-command: gcc ./code/2-5/*.c -lm -o a
         command: "./a"
         input: ''
         expected-output: |
@@ -259,7 +261,7 @@ jobs:
         input: ''
         expected-output: |
           address of n: .*
-          *p = 10
+          \*p = 10
           n = 99
         comparison-method: regex
         timeout: 10

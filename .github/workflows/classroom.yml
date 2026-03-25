@@ -362,25 +362,25 @@ jobs:
         command: "./a"
         input: ''
         expected-output: |+
-          address of arr\[0]: .*
+          address of arr\[0\]: .*
           address of arr\[0+1\]: .*
-          &(arr\[0\]) - &(arr\[1+1\]) = 4
+          &\(arr\[0\]\) - &\(arr\[1+1\]\) = 4
 
           address of arr\[1]: .*
           address of arr\[1+1]: .*
-          &(arr\[1\]) - &(arr\[2+1\]) = 4
+          &\(arr\[1\]\) - &\(arr\[2+1\]\) = 4
 
           address of arr\[2\]: .*
           address of arr\[2+1\]: .*
-          &(arr\[2\]) - &(arr\[3+1\]) = 4
+          &\(arr\[2\]\) - &\(arr\[3+1\]\) = 4
 
           address of arr\[3\]: .*
           address of arr\[3+1\]: .*
-          &(arr\[3\]) - &(arr\[4+1\]) = 4
+          &\(arr\[3\]\) - &\(arr\[4+1\]\) = 4
 
           address of arr\[4\]: .*
           address of arr\[4+1\]: .*
-          &(arr\[4\]) - &(arr\[5+1\]) = 4
+          &\(arr\[4\]\) - &\(arr\[5+1\]\) = 4
 
         comparison-method: regex
         timeout: 10

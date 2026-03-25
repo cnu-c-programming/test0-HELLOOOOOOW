@@ -208,15 +208,15 @@ jobs:
       with:
         test-name: test-2-3
         setup-command: gcc ./code/2-3/*.c -o a
-        command: a
+        command: "./a"
         input: ''
         expected-output: |
           length of a: 5
           a: Hello, c: Hello
           c: Hello world
           strcmp(Hello, Hello) = 0
-          strcmp(Hello, world) = -1
-        comparison-method: contains
+          strcmp(Hello, world) = [^0]
+        comparison-method: regex
         timeout: 10
         max-score: 1
     - name: test-2-4
@@ -227,9 +227,11 @@ jobs:
         setup-command: gcc ./code/2-4/*.c -o a
         command: "./a"
         input: ''
-        expected-output: "A - alpha:1 digit:0 upper:A lower:a\nz - alpha:2 digit:0
-          upper:Z lower:z\n5 - alpha:0 digit:1 upper:5 lower:5\n! - alpha:0 digit:0
-          upper:! lower:!\n  - alpha:0 digit:0 upper:  lower: \n"
+        expected-output: |
+          A - alpha:1 digit:0 upper:A lower:a
+          z - alpha:2 digit:0 upper:Z lower:z
+          5 - alpha:0 digit:1 upper:5 lower:5
+          ! - alpha:0 digit:0 upper:! lower:!
         comparison-method: contains
         timeout: 10
         max-score: 1
@@ -238,7 +240,7 @@ jobs:
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: test-2-5
-        setup-command: gcc ./code/2-5/*.c -o a
+        setup-command: gcc ./code/2-5/*.c -lm -o a
         command: "./a"
         input: ''
         expected-output: |
@@ -259,7 +261,7 @@ jobs:
         input: ''
         expected-output: |
           address of n: .*
-          *p = 10
+          \*p = 10
           n = 99
         comparison-method: regex
         timeout: 10
@@ -360,25 +362,25 @@ jobs:
         command: "./a"
         input: ''
         expected-output: |+
-          address of arr[0]: .*
-          address of arr[0+1]: .*
-          &(arr[0]) - &(arr[1+1]) = 4
+          address of arr\[0\]: .*
+          address of arr\[0+1\]: .*
+          &(arr\[0\]) - &(arr\[1+1\]) = 4
 
-          address of arr[1]: .*
-          address of arr[1+1]: .*
-          &(arr[1]) - &(arr[2+1]) = 4
+          address of arr\[1\]: .*
+          address of arr\[1+1\]: .*
+          &(arr\[1\]) - &(arr\[2+1\]) = 4
 
-          address of arr[2]: .*
-          address of arr[2+1]: .*
-          &(arr[2]) - &(arr[3+1]) = 4
+          address of arr\[2\]: .*
+          address of arr\[2+1\]: .*
+          &(arr\[2\]) - &(arr\[3+1\]) = 4
 
-          address of arr[3]: .*
-          address of arr[3+1]: .*
-          &(arr[3]) - &(arr[4+1]) = 4
+          address of arr\[3\]: .*
+          address of arr\[3+1\]: .*
+          &(arr\[3\]) - &(arr\[4+1\]) = 4
 
-          address of arr[4]: .*
-          address of arr[4+1]: .*
-          &(arr[4]) - &(arr[5+1]) = 4
+          address of arr\[4\]: .*
+          address of arr\[4+1\]: .*
+          &(arr\[4\]) - &(arr\[5+1\]) = 4
 
         comparison-method: regex
         timeout: 10

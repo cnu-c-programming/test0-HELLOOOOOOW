@@ -18,8 +18,8 @@ jobs:
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: test-1-1
-        setup-command: gcc ./code/1-1/*.c 2> 1-1-got.txt
-        command: cat 1-1-got.txt
+        setup-command: ''
+        command: gcc ./code/1-1/*.c 2> 1-1-got.txt; cat 1-1-got.txt
         input: ''
         expected-output: |-
           .*undefined reference to `foo'

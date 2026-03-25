@@ -215,7 +215,7 @@ jobs:
           a: Hello, c: Hello
           c: Hello world
           strcmp(Hello, Hello) = 0
-          strcmp(Hello, world) = [^0]
+          strcmp(Hello, world) = -.*
         comparison-method: regex
         timeout: 10
         max-score: 1

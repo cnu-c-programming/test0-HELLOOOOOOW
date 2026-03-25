@@ -215,7 +215,7 @@ jobs:
           a: Hello, c: Hello
           c: Hello world
           strcmp\(Hello, Hello\) = 0
-          strcmp\(Hello, world\) = [^0]*
+          strcmp\(Hello, world\) = [^0].*
         comparison-method: regex
         timeout: 10
         max-score: 1
@@ -228,9 +228,9 @@ jobs:
         command: "./a"
         input: ''
         expected-output: |
-          A - alpha:[^0]* digit:0 upper:A lower:a
-          z - alpha:[^0]* digit:0 upper:Z lower:z
-          5 - alpha:0 digit:[^0]* upper:5 lower:5
+          A - alpha:[^0].* digit:0 upper:A lower:a
+          z - alpha:[^0].* digit:0 upper:Z lower:z
+          5 - alpha:0 digit:[^0].* upper:5 lower:5
           ! - alpha:0 digit:0 upper:! lower:!
         comparison-method: contains
         timeout: 10
@@ -366,8 +366,8 @@ jobs:
           address of arr\[0+1\]: .*
           &(arr\[0\]) - &(arr\[1+1\]) = 4
 
-          address of arr\[1\]: .*
-          address of arr\[1+1\]: .*
+          address of arr\[1]: .*
+          address of arr\[1+1]: .*
           &(arr\[1\]) - &(arr\[2+1\]) = 4
 
           address of arr\[2\]: .*

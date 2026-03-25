@@ -230,7 +230,7 @@ jobs:
         expected-output: |
           A - alpha:[^0]* digit:0 upper:A lower:a
           z - alpha:[^0]* digit:0 upper:Z lower:z
-          5 - alpha:0 digit:1 upper:5 lower:5
+          5 - alpha:0 digit:[^0]* upper:5 lower:5
           ! - alpha:0 digit:0 upper:! lower:!
         comparison-method: contains
         timeout: 10
